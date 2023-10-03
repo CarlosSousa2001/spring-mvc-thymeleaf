@@ -2,6 +2,8 @@ package com.springThymeleaft.demomvc.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "cargos")
 public class Cargo extends AbstractEntity<Long> {
@@ -13,7 +15,7 @@ public class Cargo extends AbstractEntity<Long> {
     private Departamento departamento;
 
     @OneToMany(mappedBy = "cargo")
-    private Funcionario funcionario;
+    private List<Funcionario> funcionario;
 
     public Cargo(){}
 
@@ -35,11 +37,11 @@ public class Cargo extends AbstractEntity<Long> {
         this.departamento = departamento;
     }
 
-    public Funcionario getFuncionario() {
+    public List<Funcionario> getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(List<Funcionario> funcionario) {
         this.funcionario = funcionario;
     }
 }
